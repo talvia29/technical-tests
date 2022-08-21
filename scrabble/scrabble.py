@@ -94,13 +94,13 @@ def find_all_valid_words():
     
     for real_word in list_of_real_words:
         real_word_letters = list(real_word)
+        real_word_letters_set = set(real_word_letters)
+        player_rack_set = set(player_rack)
 
-        if len(set(player_rack).intersection(set(real_word_letters))) == len(real_word_letters):
+        if len(real_word_letters_set.intersection(player_rack_set)) == len(real_word_letters):
             playable_words.append(real_word)
 
     print(playable_words)
-
-
 
 def play_scrabble():
     create_bag()
