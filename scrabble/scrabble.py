@@ -100,6 +100,10 @@ def find_all_valid_words():
         if len(real_word_letters_set.intersection(player_rack_set)) == len(real_word_letters):
             playable_words.append(real_word)
 
+
+        # alternative method is looping through both words and maybe popping matched values to check if word can be made 
+        # don't have enough time to make this though 
+
     print(playable_words)
 
 def play_scrabble():
