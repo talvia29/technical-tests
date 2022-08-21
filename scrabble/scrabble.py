@@ -79,8 +79,17 @@ def create_bag():
 def get_player_hand():
     bag = create_bag()
     random.shuffle(bag)
-    player_hand = [bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0)]
+    player_rack = [bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0),bag.pop(0)]
 
-    print(player_hand)
+    return player_rack
 
-get_player_hand()
+def find_valid_word():
+    letters = get_player_hand()
+    dictionary = open("dictionary.txt")
+
+    possible_words = []
+    confirmed_words = []
+
+    for possible_word in possible_words:
+        if possible_word in dictionary.read():
+            confirmed_words.append(possible_word)
