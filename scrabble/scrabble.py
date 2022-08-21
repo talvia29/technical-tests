@@ -83,13 +83,30 @@ def get_player_hand():
 
     return player_rack
 
-def find_valid_word():
-    letters = get_player_hand()
-    dictionary = open("dictionary.txt")
+def find_all_valid_words():
+    player_rack = get_player_hand()
+    print(player_rack)
+    # going to try looping through dictionary to see if word can be made, then adding to a list of possible words
+    with open('dictionary.txt') as dictionary:
+        list_of_real_words = dictionary.read().upper().split()
 
-    possible_words = []
-    confirmed_words = []
+    playable_words = []
+    
+    for real_word in list_of_real_words:
+        real_word_letters = list(real_word)
 
-    for possible_word in possible_words:
-        if possible_word in dictionary.read():
-            confirmed_words.append(possible_word)
+        if len(set(player_rack).intersection(set(real_word_letters))) == len(real_word_letters):
+            playable_words.append(real_word)
+
+    print(playable_words)
+
+
+
+def play_scrabble():
+    create_bag()
+    get_player_hand()
+    find_all_valid_words()
+
+
+
+play_scrabble()
